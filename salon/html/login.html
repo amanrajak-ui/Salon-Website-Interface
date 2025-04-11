@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
+    <title>Login Page</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <!-- Link to external stylesheet for styling -->
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
+    </head>
+<body class="body-login">
+    <!-- Header section with navigation and page title -->
+    <!-- <section class="sub-header-login">
+        <nav>
+            <a href="index.html"><img style="width:100px;height: auto;opacity: 0.8;" src="../images/logo.png" alt="Chic Locks Logo"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="services.html">SERVICES</a></li> -->
+                    <!--<li><a href="about.html">ABOUT</a></li>-->
+                    <!-- <li><a href="contact-us.html">CONTACT</a></li>
+                    <li><a href="info.html">INFO</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section> -->
+
+
+    <!--new nav-->
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="../images/logo.png" alt="Chic Locks Logo"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="contact-us.html">CONTACT</a></li>
+                    <li><a href="info.html">ABOUT</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+
+
+    <section class="login-form">
+        <div class="login-container">
+            <div class="form-container" id="formContainer">
+                <div class="form" id="loginForm">
+                    <h1>Welcome Back!</h1>
+                    <form>
+                        <input type="text" id="Email" name="Email" placeholder="Enter your email" required>
+                        <input type="password" id="Password" name="Password" placeholder="Enter password" required>
+                            <button type="button" class="login-btn" onclick="loginButtonClick()">Login</button>
+                            <label class="label-flip" for="noAccount" onclick="flipForm()">Sign Up</label>
+                    </form>
+                </div>
+
+                <div class="form register-form" id="registerForm">
+                    <form>
+                        <img src="../images/download.png" alt="Upload Image" id="previewImage" style="cursor: pointer;" onclick="triggerFileInput()">
+                        <input type="file" id="Image" name="Image" style="display: none;" onchange="displayImage(this)">
+                        <div class="form-group">
+                            <input type="text" id="Name" name="Name" placeholder="Enter your name" required>
+                            <input type="text" id="Lastname" name="Lastname" placeholder="Enter your last name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="RegisterEmail" name="Email" placeholder="Enter your email" required>
+                            <input type="text" id="Telephone" name="Telephone" placeholder="Enter your phone"  required>
+                        </div>
+                        <textarea id="BIO" name="BIO" rows="1" placeholder="Notatka BIO" class="bio-textarea"></textarea>
+                        <input type="password" id="NewPassword" name="Password" placeholder="Enter password" required>
+                        <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm password" required oninput="checkPasswordMatch()">
+                        <button type="button" class="register-btn" onclick="registerButtonClick()">Register</button>
+                        <label class="label-flip" for="backLogin" onclick="flipForm()">Back to Login</label>
+                    </form>                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/script.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+</html>

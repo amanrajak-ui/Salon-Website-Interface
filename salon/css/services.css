@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+.sub-header {
+	background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+	url(../images/hair_salon.jpg);
+}
+.service-section {
+    width: 70%;
+    margin: 2vw auto;
+    display: flex;
+    flex-direction: column;
+}
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.service-details {
+    width: 50%;
+}
+.service-option {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.3vw;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 0.9;
+}
+.service-heading{
+	font-size:14px;
+    line-height: 30px;
+	margin-left: 1.3vw;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+	position: relative;
+}
+.service-heading::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    border-bottom: 2px solid #f44336; 
+    width: calc(100% - 10px); 
+}
+.service-name, .service-price {
+    white-space: pre;
+}
+.service-image {
+    width: 50%;
+    position: relative;
+	margin-bottom: -4px;
+}
+.service-image img {
+    width: 100%;
+    height: auto;
+}
+.service-section h5 {
+    text-align: center;
+    color: #f44336;
+    margin-top: 2vw;
+}
+@media (max-width: 1450px) {
+	.service-section {
+		width: 95%;
+	}
+}
+@media (max-width: 1100px) {
+	.service-row {
+		margin-top: 7vw;
+		flex-direction: column;
+		border: 1px solid #000;
+	}
+	.service-details{
+		width: 95%;
+	}
+	.service-image{
+		width: 100%;
+	}
+	.service-option{
+		margin-bottom: 15px;
+	}
+	.service-heading{
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+}
+@media (max-width: 550px) {
+	.service-option {
+		font-size:17px;
+		line-height: 1.2;
+	}
+	.service-heading{
+		font-size:11px;
+	}
+}
+@media (max-width: 450px) {
+	.service-option {
+		font-size:14px;
+	}
+	.service-heading{
+		font-size:8px;
+	}
+}
+@media (max-width: 360px) {
+	.service-option {
+		font-size:10px;
+	}
+	.service-heading{
+		font-size:4px;
+		line-height: 10px;
+	}
+}
+@media (max-width: 260px) {
+	.service-option {
+		font-size:8px;
+	}
+	.service-heading{
+		font-size:2px;
+		
+		line-height: 6px;
+	}
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
+    <title>Services Page</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <!-- Link to external stylesheet for styling -->
+    <link rel="stylesheet" href="../css/booking-common.css">
+    <link rel="stylesheet" href="../css/book-service.css">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
+    </head>
+<body>
+    <!-- Header section with navigation and page title -->
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="../images/logo.png" alt="Chic Locks Logo"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="">LINK</a></li>
+                    <li><a href="">LINK</a></li>
+                    <!--<li><a href="about.html">LINK</a></li>-->
+                    <li><a href="">LINK</a></li>
+                    <li><a href="">LINK</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+
+    <div id="serviceInfoSection" class="service-info-section">
+        <div class="back-button-conteiner">
+            <i id="back-btn" class="fa-solid fa-chevron-left"></i>
+            <span>Back</span>
+        </div>
+        <div class="detail-content">
+            <div class="back-conteiner">
+                <i id="back-btn" class="fa-solid fa-chevron-left"></i>
+                <h1 class="service-name"></h1>
+            </div>
+            <div class="service-info">
+                <h1 class="service-name"></h1>
+                <p class="service-duration-price"></p>
+                <p class="service-description"></p>
+            </div>
+            <div class="booking-container">
+                <p>Add Guests</p>
+                <div class="combobox">
+                    <div class="selected-option">
+                        <p>Select an option</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="options">
+                    <li>Just me</li>
+                    <li>2 people</li>
+                    <li>3 people</li>
+                    <li>4 people</li>
+                    <li>5 people</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="book-button-container">
+                <a href="service-menu.html" class="diff-service-btn">Select different services</a>
+                <a href="#" class="continue-book-btn">Continue</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="staffSection" class="staff-section">
+        <div class="back-conteiner-staff">
+                <i id="back-btn" class="fa-solid fa-chevron-left"></i>
+                <h1 class="service-name-staff"></h1>
+        </div>
+        <div class="staff">
+            <div class="row any-staff">
+                <div class="staff-option">
+                    <div class="img">
+                        <img src="../images/user.png" alt="Customer Julia">
+                    </div>
+                    <div class="info">
+                        <div>
+                            <h2>any available staff</h2>
+                            <a href="#" class="select-staff-btn" id="-1">Select</a>
+                        </div>
+                        <p style="margin-top: 5px;">
+                            Maximize number of available appointment times.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="scheduleSection" class="schedule-section">
+        <div class="back-conteiner-schedule">
+            <i id="back-btn" class="fa-solid fa-chevron-left"></i>
+            <h1>Pick a time</h1>
+        </div>
+        <div class="schedule-container">
+            <div class="appointment-container" >
+                <div class="appointment-header" style="display: flex; flex-direction: row; gap: 40px;">
+                    <h4>YOUR APPOINTMENT</h4>
+                    <span id="appointmentDuration" class="appointment-duration">Loading...</span>
+                </div>
+                <div class="appointment-info">
+                    <div class="img">
+                        <img id="employeeImage" class="employee-image" style="width: 60px; height: auto;" src="../images/user1.jpg" alt="Employee">
+                    </div>
+                    <div class="info">
+                        <h5 id="serviceName" class="service-name">Loading...</h5>
+                        <p id="employeeName" class="employee-name">with Loading...</p>
+                        <a href="#" class="change-staff-btn">change</a>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="calendarHeader" class="calendar-header">
+                    <div id="prevMonthArrow" class="arrow left-arrow"><i id="prev-month-arrow" class="fa-solid fa-chevron-left"></i></div>
+                    <div id="monthYear" class="month-year"></div>
+                    <div id="nextMonthArrow" class="arrow right-arrow"><i id="prev-month-arrow" class="fa-solid fa-chevron-right"></i></div>
+                </div>
+                <div class="days-container" id="daysContainer"></div>
+            </div>
+            <div class="hour-options-container" style="display: flex; flex-direction: column;">
+                <h4 id="selected-day">Tuesday, February 15</h4>
+                <div class="hour-options-columms">
+                    <div class="morning-hours-column">
+                        <h5>MORNING</h5>
+                    </div>
+                    <div class="afternoon-hours-column">
+                        <h5>AFTERNOON</h5>
+                    </div>
+                    <div class="evening-hours-column">
+                        <h5>EVENING</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="summaryConfirmationSection" class="summary-confirmation-section">
+        <div class="back-conteiner-summary">
+            <i id="back-btn" class="fa-solid fa-chevron-left"></i>
+            <h1>Summary</h1>
+        </div>
+        <div class="summary-appointment-container">
+            <div class="summary-appointment-header" style="display: flex; flex-direction: row; gap: 40px;">
+                <h4>YOUR APPOINTMENT</h4>
+                <span id="appointmentDurationSummary" class="appointment-duration">Loading...</span>
+            </div>
+            <div class="appointment-info-conteiner">
+                <div class="appointment-details">
+                    <div class="employee-img">
+                        <img id="employeeImageSummary" class="employee-image" src="../images/user1.jpg" alt="Employee">
+                    </div>
+                    <div class="service-details">
+                        <h5 id="serviceNameSummary" class="service-name">Loading...</h5>
+                        <p id="employeeNameSummary" class="employee-name">with Loading...</p>
+                        <p id="numberOfPeople" class="number-of-people"></p>
+                    </div>
+                    <div class="booking-details">
+                        <p id="dateDetails" class="date-details"></p>
+                        <p id="timeDetails" class="time-details"></p>
+                    </div>
+                </div>
+                <div class="confirmation-button">
+                    <a href="#" class="change-details">Change</a>
+                    <a href="#" class="confirm-appointment">Confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer section with information about the salon and social media icons -->
+   <!--<footer>
+    </footer>-->
+   <script src="../js/script.js"></script>
+   <script src="../js/book-service.js"></script>
+</html>

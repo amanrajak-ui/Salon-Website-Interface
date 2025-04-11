@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
+    <title>Chic Locks | User Panel</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <!-- Link to external stylesheet for styling -->
+    <link rel="stylesheet" href="../css/backend.css">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
+    </head>
+<body>
+    <div class="page-container">
+        <!-- Sidebar section -->
+        <aside class="sidebar">
+            <div class="userProfile" id="userProfile">
+            <!-- Placeholder for user profile information -->
+            </div>
+            <ul>
+                <li><a href="#" onclick="showContent('profile')"><i class="fas fa-user"></i><span>Profile</span></a></li>
+                <li><a href="#" onclick="showContent('posts')"><i class="fas fa-file-alt"></i><span>Posts</span></a></li>
+                <li><a href="#" onclick="showContent('users')"><i class="fas fa-users"></i><span>Users</span></a></li>
+                <li><a href="#" onclick="showContent('statistics')"><i class="fas fa-chart-bar"></i><span>Statistics</span></a></li>
+            </ul>
+            <div class="spacer"></div>
+            <div class="logout-btn">
+                <li><a href="index.html" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+            </div>
+        </aside>
+
+        <!-- Main panel section -->
+        <main class="main-panel" id="mainContent">
+            <!-- Profile content -->
+            <div id="profileContent" class="profile-content">
+                <div class="user-info">
+                    <div class="user-name">
+                        <img src="../images/download.png" alt="User Image">
+                        <p>Name LastName</p>
+                    </div>
+                    <div class="bio">
+                        <p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
+                    </div>
+                </div>
+                <div class="edit-user-form">
+                    <div class="upper-section">
+                        <div class="name-section">
+                            <label for="Name">First Name</label>
+                            <input type="text" id="Name" name="Name" required readonly>
+                        </div>
+                        <div class="lastname-section">
+                            <label for="Lastname">Last Name</label>
+                            <input type="text" id="Lastname" name="Lastname" required readonly>
+                        </div>
+                    </div>
+                
+                    <div class="middle-section">
+                        <div class="email-section">
+                            <label for="Email">Email</label>
+                            <input type="email" id="Email" name="Email" required readonly>
+                        </div>
+                        <div class="telephone-section">
+                            <label for="Telephone">Telephone</label>
+                            <input type="text" id="Telephone" name="Telephone" placeholder="Enter your phone" required readonly>
+                        </div>
+                    </div>
+                
+                    <div class="lower-section">
+                        <div class="bio-section">
+                            <label for="BIO">BIO</label>
+                            <textarea id="BIO" name="BIO" rows="1" class="bio-textarea" readonly></textarea>
+                        </div>
+                        <div class="button-section">
+                            <button id="editProfileBtn" class="edit-prfile-btn" type="button" onclick="enableEditMode()">Edit</button>
+                        </div>
+                        
+                    </div>
+                    <div class="image-section">
+                        <div class="new-image-section">
+                            <label for="newProfileImage">Change Profile Image</label>
+                            <input type="file" id="newProfileImage" class="new-profile-image">
+                        </div>
+                        <div class="no-section"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog content (Posts) -->
+            <div id="postsContent" class="posts-content" style="display: none;">
+                <div class="post-head">
+                    <h1>Posts</h1>
+                    <button id="addPostBtn" class="add-new-post-btn" onclick="showEditPostSection()">Add Post</button>
+                </div>
+                <section class="posts" id="postsContainer">
+                    <div id="loadingIndicator" class="loading-indicator">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <p>Loading posts...</p>
+                    </div>
+                    
+                </section>
+            </div>
+
+            <!-- Users content -->
+            <div id="usersContent" class="users-content" style="display: none;">
+                <div class="post-head">
+                    <h1>Users</h1>
+                    <button id="addUserBtn" class="add-new-user-btn" onclick="addNewUserRow();">Add User</button>
+                </div>
+                <section class="users" id="usersContainer">
+                    <table class="users-table" id="users-table">
+                        <thead>
+                            <tr>
+                                <th>Profile image</th>
+                                <th>Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Telephone</th>
+                                <th>BIO</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                    <div class="password-section" style="display: none;"> 
+                        <div class="new-user-password">
+                            <label for="NewPassword">New password</label>
+                            <input type="text" id="NewPassword" name="NewPassword"  placeholder="Enter password" required>
+                        </div>
+                        <div class="confirm-password">
+                            <label for="ConfirmPassword">Confirm password</label>
+                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm password" required oninput="checkPasswordMatch()">
+                        </div>
+                    </div>
+                    <div style="display: none;" class="edit-mode-message">
+                        <p>You are in user edit mode. Click <strong>"Save"</strong> to save the changes or <strong>"Cancel"</strong> to return to the user list page</p>
+                    </div>
+                </section>
+            </div>	
+
+            <div id="statisticsContent" class="statistics-content" style="display: none;">
+                <h1>Statistics</h1>
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <canvas id="activityLineGraph"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="userInteractionsBarChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <canvas id="engagementBarChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="followersGrowthAreaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit post page -->
+            <div id="editPostContent" class="edit-post-content" style="display: none;">
+                <section class="post-data">
+                    <div>
+                        <input type="number" id="postId" hidden></input>
+                        <h1>Title:</h1>
+                        <textarea id="postTitle" rows="1" class="edit-textarea" required></textarea>
+                        <h1>Image:</h1>
+                        <img id="postImage" alt="Post Image">
+                        <input type="file" id="newPostImage" name="newImage" accept="image/*">
+                        <button id="deletePostBtn" onclick="confirmDeletePost()">Delete Post</button>
+                    </div>
+                    <div>
+                        <h1>Content:</h1>
+                        <textarea id="postContent" rows="22" class="edit-textarea" required></textarea>
+                        <button id="saveChangesBtn" onclick="saveChanges()">Save Changes</button>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+    <script src="../js/backend.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/backend-charts.js"></script>
+</body>
+</html>
